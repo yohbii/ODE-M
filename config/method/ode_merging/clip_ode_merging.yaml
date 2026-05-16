@@ -1,0 +1,66 @@
+# =============================================================================
+# FusionBench Method Configuration: ODE Merging
+# =============================================================================
+_target_: fusion_bench.method.ode_merging.clip_ode_merging.ODEMergingForCLIPVisionModel
+
+seed: 42
+
+evaluate_on_every_step: True
+
+integration:
+  method: euler
+  step_size: 0.01
+  time_grid: [0.0, 1.0]
+
+merge_mode: sequential
+
+exclude_model_names_regex: []
+
+exclude_param_names_regex: []
+
+num_samples: 2048
+
+dataloader_kwargs:
+  pin_memory: True
+  batch_size: 128
+  
+
+barrier_budget: 0.08
+barrier_tight_power: 2.0
+barrier_probe_batches: 8
+
+protect_old_only: False
+
+qp_num_constraints: 2
+qp_sens_constraints: 2
+qp_reg: 1e-6
+qp_tol: 1e-6
+
+dv_over_u_target: 0.24
+dv_over_u_ramp: 0.0
+eta_max: 1e6
+eta_min: 0.0
+
+macro_grad_batches: 8
+sens_grad_batches: 1
+constraint_grad_batches: 1
+allowed_inc_per_step: 0.0
+
+step_backtrack_steps: 8
+step_shrink: 0.7
+step_min: 1e-4
+step_max: 1.0
+step_grow: 1.25
+
+macro_w_old: 1.0
+macro_w_new: 1.0
+macro_grad_norm_power: 0.25
+
+post_refine: True
+post_refine_steps: 80
+post_refine_lr: 1e-6
+post_refine_anchor: 1e-3
+post_refine_radius: 1e-3
+post_refine_task_tol: 0.02
+post_refine_grad_clip: 1.0
+post_refine_probe_batches: 4
