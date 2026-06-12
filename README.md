@@ -37,10 +37,13 @@ bash examples/ode_merging/ablations.sh
 ## Citation
 If you find our paper useful, you can consider citing our work:
 ```
-@article{lin2026ode
+@article{lin2026ode,
   title={Unlocking the Potential of Continual Model Merging: An ODE Perspective},
   author={Lihong Lin and Haidong Kang},
   journal={Forty-third International Conference on Machine Learning},
   year={2026}
 }
 ```
+
+## Acknowledgement
+This project is built upon [FusionBench](https://github.com/tanganke/fusion_bench). We sincerely thank the FusionBench developers and contributors for open-sourcing and maintaining this valuable framework, whose infrastructure and tools greatly facilitated the development and evaluation of our work.
